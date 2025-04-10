@@ -1,0 +1,225 @@
+/* --------- MODO CLARO (default) --------- */
+:root {
+  --bg-color: #f7dcdd; /* Remy */
+  --text-color: #7e2513; /* Tempered Chocolate */
+  --accent-color: #e6815a; /* Tangerine Flake */
+  --soft-accent: #e69fa3; /* Strawberry Smoothie */
+}
+
+/* --------- MODO OSCURO (cuando se activa el checkbox) --------- */
+#theme-toggle:checked ~ body {
+  --bg-color: #7e2513; /* Tempered Chocolate */
+  --text-color: #ffe8b0; /* Peach Fuzz */
+  --accent-color: #e68237; /* Red Cray */
+  --soft-accent: #ffe8b0; /* Peach Fuzz */
+}
+
+/* --------- ESTILOS GENERALES --------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.5s ease, color 0.5s ease;
+  text-align: center;
+}
+
+/* ANIMACIÓN DE ENTRADA */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* --------- HEADER --------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--accent-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* --------- NAVEGACIÓN --------- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+  background: var(--soft-accent);
+  transform: scale(1.05);
+}
+
+/* --------- BOTÓN TOGGLE --------- */
+.theme-toggle-button {
+  cursor: pointer;
+  background: none;
+  border: 2px solid var(--text-color);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+  background: var(--soft-accent);
+}
+
+/* --------- MAIN --------- */
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+/* ANIMACIONES */
+.anim-title {
+  animation: fadeIn 2s ease-in-out;
+}
+
+.anim-text {
+  opacity: 0;
+  animation: slideUp 1.5s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* IMAGEN DESTACADA */
+.anim-img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  margin-top: 15px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.anim-img:hover {
+  transform: scale(1.1);
+}
+
+/* REDES / CONTACTO */
+.contacto {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contacto a {
+  color: var(--text-color);
+  font-size: 24px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.contacto a:hover {
+  transform: scale(1.2);
+  color: var(--accent-color);
+}
+
+/* FOOTER */
+footer {
+  width: 100%;
+  padding: 20px;
+  background: var(--accent-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* --------- RESPONSIVE --------- */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+
+  .anim-img {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .contacto {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contacto a {
+    font-size: 20px;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}

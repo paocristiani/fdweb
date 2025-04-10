@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portafolio de Paola Cristiani, desarrollo web y diseño gráfico."
+    />
+    <meta
+      name="keywords"
+      content="HTML, CSS, desarrollo web, diseño gráfico, portafolio"
+    />
+    <meta name="author" content="Paola Cristiani" />
+    <meta name="robots" content="index, follow" />
+
+    <title>Paola Cristiani | Portafolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTTX+4VqfT2Rt+JzNp6FzO8Z6vZf2Lk4rKjv5uFJyQKzQ7V4Xzz0OaN+6Ik6LzUO3+M5fWZf/w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --bg: #f7dcdd;
+        --text: #7e2513;
+        --primary: #e6815a;
+        --accent: #e69fa3;
+      }
+
+      body.dark {
+        --bg: #7e2513;
+        --text: #ffe8b0;
+        --primary: #e68237;
+        --accent: #ffe8b0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        transition: background 0.4s, color 0.4s;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: var(--primary);
+        color: var(--text);
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      .theme-toggle {
+        cursor: pointer;
+        border: 1px solid var(--text);
+        background: none;
+        color: var(--text);
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        margin-left: 1rem;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .theme-toggle:hover {
+        background: var(--accent);
+        color: var(--bg);
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+      }
+
+      main {
+        padding: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .intro {
+        margin-bottom: 3rem;
+      }
+
+      .intro-img {
+        max-width: 300px;
+        width: 100%;
+        border-radius: 12px;
+        margin: 2rem auto;
+        display: block;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1.2s ease-out forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .trabajos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .card {
+        background: var(--accent);
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .card:hover {
+        transform: scale(1.02);
+      }
+
+      .card img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+
+      .card h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Paola Cristiani</h1>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#trabajos">Trabajos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <button
+          class="theme-toggle"
+          onclick="document.body.classList.toggle('dark')"
+        >
+          <i class="fas fa-adjust"></i> Modo
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro" id="inicio">
+        <h2>¡Hola! Soy Paola, soy diseñadora grafica</h2>
+        <p>Aquí encontrarás una selección de mis trabajos recientes.</p>
+        <img
+          src="https://via.placeholder.com/300x300"
+          alt="Foto de Paola"
+          class="intro-img"
+        />
+      </section>
+
+      <section class="trabajos" id="trabajos">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" alt="Trabajo 1" />
+          <h3>Proyecto 1</h3>
+          <p>Descripción breve de este trabajo.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" alt="Trabajo 2" />
+          <h3>Proyecto 2</h3>
+          <p>Descripción breve de este trabajo.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" alt="Trabajo 3" />
+          <h3>Proyecto 3</h3>
+          <p>Descripción breve de este trabajo.</p>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <h2>Contacto</h2>
+        <p>
+          Puedes escribirme a
+          <a href="mailto:paocris2525@gmail.com">paocris2525@gmail.com</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; Paola Cristiani 2025</p>
+    </footer>
+  </body>
+</html>
